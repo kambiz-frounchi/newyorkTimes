@@ -10,9 +10,11 @@ clearBtn
 topArticles
 */
 
-$("#searchButton").on("click", function () {
+$("#searchButton").on("click", function (event) {
 
 //$(document).ready(function() {
+    event.preventDefault();
+    console.log("searchButton");
     var query = $("#search").val();
     var beginDate = $("#startYear").val() + "0101";
     var endDate = $("#endYear").val() + "1231";
@@ -39,11 +41,11 @@ $("#searchButton").on("click", function () {
             $.ajax({url: queryURL, method: "GET"}).then ( function (response) {
                 console.log(response);
             
-                response.docs.forEach(function (item) {
-                    console.log(item);
-                    var article = $("<div>").addClass("card-body");
-                    var articleTitle = $("<h5>").addClass("card-title").text("something");
-                    var articleText = $("<p>").addClass("card-text").text("something");
+                response.response.docs.forEach(function (item) {
+                        console.log(item);
+                        var article = $("<div>").addClass("card-body");
+                        var articleTitle = $("<h5>").addClass("card-title").text(item.headline.main);
+                        var articleText = $("<p>").addClass("card-text").text(item.abstract);
                     
                     article.append(articleTitle, articleText);
                 //$("#topArticles").append(article);
