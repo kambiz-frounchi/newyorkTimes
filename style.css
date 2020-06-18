@@ -1,0 +1,23 @@
+#header{
+    text-align: center;
+    padding: 50px;
+    background-color: dodgerblue;
+    color: white;
+}
+body {
+    background-color: #fafafa;
+    margin-top: 10px;
+}
+.parameter {
+    background-color: dodgerblue !important;
+}
+
+.panel-heading {
+    color: white;
+    font-weight: 400px;
+}
+
+.panel-title {
+    color: white;
+    font-weight: 400px;
+}
