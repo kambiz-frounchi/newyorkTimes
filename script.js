@@ -10,10 +10,10 @@ clearBtn
 topArticles
 */
 
-//$("#searchBtn").on("click", function () {
+$("#searchButton").on("click", function () {
 
-$(document).ready(function() {
-    var query = $("#searchTerm").val();
+//$(document).ready(function() {
+    var query = $("#search").val();
     var beginDate = $("#startYear").val() + "0101";
     var endDate = $("#endYear").val() + "1231";
     var numRecords = $("#numRecords").val();
@@ -39,14 +39,12 @@ $(document).ready(function() {
             $.ajax({url: queryURL, method: "GET"}).then ( function (response) {
                 console.log(response);
             
-    
-                response.docs.forEach(function (item, index) {
+                response.docs.forEach(function (item) {
                     console.log(item);
                     var article = $("<div>").addClass("card-body");
-                    var articleTitle = $("<h5>").addClass("card-title");
-                    var articleText = $("<p>").addClass("card-text");
-                
-        
+                    var articleTitle = $("<h5>").addClass("card-title").text("something");
+                    var articleText = $("<p>").addClass("card-text").text("something");
+                    
                     article.append(articleTitle, articleText);
                 //$("#topArticles").append(article);
                     $("body").append(article);
@@ -54,20 +52,4 @@ $(document).ready(function() {
             });
         }
     });
-
-
-    });
-    
-
-
-    
-    
-
-    
-
-
-
-
 });
-
-//})
